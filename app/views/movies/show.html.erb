@@ -8,11 +8,13 @@
 <p>
   <strong>Poster:</strong>
   <%= @movie.poster %>
+  
 </p>
 
 <p>
   <strong>Trailer:</strong>
-  <%= @movie.trailer %>
+  #<%= @movie.trailer %>
+  <%= sanitize @movie.trailer,:tags =>['iframe']%>
 </p>
 
 <p>
