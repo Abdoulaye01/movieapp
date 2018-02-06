@@ -19,7 +19,7 @@
     <% @movies.each do |movie| %>
       <tr>
         <td><%= movie.title %></td>
-        <td><%= movie.poster %></td>
+        <td><%= image_tag( movie.poster, :size => "260x180") %></td>
         <td><%= movie.trailer %></td>
         <td><%= movie.rating %></td>
         <td><%= movie.released_on %></td>

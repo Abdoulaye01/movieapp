@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Movieapp</title>
+    <title>Films</title>
     <%= csrf_meta_tags %>
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
@@ -9,6 +9,22 @@
   </head>
 
   <body>
+  
+
+  <header class = "navbar navbar-fixed-top navbar-inverse" >
+    <div class = "container"
+      
+      <nav>
+        <ul class = "nav navbar-nav navbar-right" >
+          <li><%= link_to "About", '#' %></li>   
+			<li>Email<%= mail_to "c15489978@mydit.ie"%></li>
+			<l><%= link_to "Home", root_path %></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+  
+	<br>
     <%= yield %>
   </body>
 </html>
