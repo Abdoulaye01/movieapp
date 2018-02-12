@@ -1,30 +1,41 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <title>Films</title>
-    <%= csrf_meta_tags %>
+	<!DOCTYPE html>
+	<html>
+	  <head>
+		<title>Films</title>
+		<%= csrf_meta_tags %>
 
-    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
-  </head>
+		<%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+		<%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+	  </head>
 
-  <body>
-  
+	  <body>
+	  
 
-  <header class = "navbar navbar-fixed-top navbar-inverse" >
-    <div class = "container"
-      
-      <nav>
-        <ul class = "nav navbar-nav navbar-right" >
-          <li><%= link_to "About", '#' %></li>   
-			<li>Email<%= mail_to "c15489978@mydit.ie"%></li>
-			<l><%= link_to "Home", root_path %></li>
-        </ul>
-      </nav>
-    </div>
-  </header>
-  
-	<br>
-    <%= yield %>
-  </body>
-</html>
+	  <header class = "navbar navbar-fixed-top navbar" >
+		<div class = "container">
+		  
+		  <nav>
+			<ul class = "nav navbar-nav navbar-right" >
+			<% if !signed_in? %>
+			<%= link_to "Sign In", login_path %>
+			<% else %>
+			
+			Signed In as <%= @current_user.name %>
+			<%= link_to "Sign Out", logout_path %>
+			<% end %>
+			  <%= link_to "About", '#' %>   
+				Email<%= mail_to "c15489978@mydit.ie" %>
+				<%= link_to "Home", root_path %>
+			</ul>
+		  </nav>
+		</div>
+	  </header>
+	 
+	  <% flash.each do |key,value| %>
+		<div class = "flash<%= key%>">
+		<%= value %>
+		<% end %>
+		<br> <br><br>
+		<%= yield %>
+	  </body>
+	</html>
